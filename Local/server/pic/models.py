@@ -4,7 +4,10 @@ from django.db import models
 
 class Picture(models.Model):
     name = models.CharField(max_length=50)
-    herf = models.CharField(max_length=255)
-    come_from = models.SlugField()
-    local = models.FilePathField()
+    herf = models.SlugField()
+    come_from = models.CharField(max_length=255)
+    local = models.FilePathField(blank=True)
     create_date = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.name

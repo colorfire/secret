@@ -4,9 +4,8 @@ from django.db import models
 
 class Picture(models.Model):
     name = models.CharField(max_length=50)
-    herf = models.SlugField()
     come_from = models.CharField(max_length=255)
-    local = models.FilePathField(blank=True)
+    photo = models.ImageField(upload_to='photos/%y/%m/%d', blank=True)
     create_date = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
